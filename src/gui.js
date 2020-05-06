@@ -37,3 +37,14 @@ function newWindow(x, y, type, attributes) {
     }
   ];
 }
+
+newWindow(10, 10, "h", {});
+
+function update() {
+  var win;
+  for(win of windows) {
+    roundRect(win.x, win.y, 50, 50, 12, "#000", "#444");
+  }
+}
+
+window.requestAnimationFrame(update);
