@@ -38,25 +38,31 @@ function newWindow(x, y, type, attributes) {
   ];
 }
 
-newWindow(10, 10, "h", {name : "Color Picker"});
+newWindow(10, 10, "h", {name : "Test Window"});
 
 function update() {
   var win;
   for(win of windows) {
-    roundRect(win.x, win.y, 150, 150, 12, "#000", "#DDD");
+    // Starting Varibles (for future).
+    var scaleX = 150;
+    var scaleY = 150;
+
+    // Border the windows.
+    roundRect(win.x, win.y, scaleX, scaleY, 12, "#000", "#DDD");
     canvas.strokeStyle = "#000";
     canvas.beginPath();
     canvas.moveTo(win.x, win.y+12);
     canvas.lineTo(win.x+150, win.y+12);
     canvas.stroke();
     canvas.closePath();
+
+    // If the window has a name.
     if(win.attributes.name) {
       canvas.font = "10px Arial";
       canvas.fillStyle = "#000";
       var length = canvas.measureText(win.attributes.name).width;
-      var size = 150;
-      var start = (size/2)-(length/2);
-      start += win.x;
+      var size = scaleX;
+      var start = win.x + ((size/2)-(length/2));
       canvas.fillText(win.attributes.name, start, win.y+10);
     }
   }
