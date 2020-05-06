@@ -7,12 +7,12 @@ var canvas = ctx.getContext("2d");
 var windows = [];
 
 function window(x, y, type, attributes) {
-  windows.push(
+  windows = [...windows,
     {
       x : x,
       y : y,
       type : type,
       attributes : attributes
     }
-  );
+  ];
 }
