@@ -17,8 +17,8 @@ function roundRect(x, y, w, h, rad, s, f) {
   canvas.arcTo(x+w, y+h, x,   y+h, rad);
   canvas.arcTo(x,   y+h, x,   y,   rad);
   canvas.arcTo(x,   y,   x+w, y,   rad);
-  canvas.stroke();
   canvas.fill();
+  canvas.stroke();
   canvas.closePath();
   canvas.strokeStyle = origStroke;
   canvas.fillStyle = origFill;
