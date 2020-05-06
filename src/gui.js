@@ -43,7 +43,13 @@ newWindow(10, 10, "h", {});
 function update() {
   var win;
   for(win of windows) {
-    roundRect(win.x, win.y, 50, 50, 12, "#000", "#444");
+    roundRect(win.x, win.y, 150, 150, 12, "#000", "#DDD");
+    canvas.strokeStyle = "#000";
+    canvas.beginPath();
+    canvas.moveTo(win.x, win.y+12);
+    canvas.lineTo(win.x+150, win.y+12);
+    canvas.stroke();
+    canvas.closePath();    
   }
 }
 
