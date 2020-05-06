@@ -38,7 +38,7 @@ function newWindow(x, y, type, attributes) {
   ];
 }
 
-newWindow(10, 10, "h", {});
+newWindow(10, 10, "h", {name : "Color Picker"});
 
 function update() {
   var win;
@@ -49,7 +49,16 @@ function update() {
     canvas.moveTo(win.x, win.y+12);
     canvas.lineTo(win.x+150, win.y+12);
     canvas.stroke();
-    canvas.closePath();    
+    canvas.closePath();
+    if(win.attributes.name) {
+      canvas.font = "10px Arial";
+      canvas.fillStyle = "#000";
+      var length = canvas.measureText(win.attributes.name).width;
+      var size = 150;
+      var start = (size/2)-(length/2);
+      start += win.x;
+      canvas.fillText(win.attributes.name, start, win.y+10);
+    }
   }
 }
 
